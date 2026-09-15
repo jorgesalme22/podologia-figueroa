@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf8f6;
+  --surface: #f3eef0;
+  --surface-strong: #ece3e6;
+  --foreground: #251f22;
+  --foreground-soft: #5c5257;
+  --berry: #8a2a55;
+  --berry-dark: #6c1f42;
+  --berry-tint: #f2dfe8;
+  --sage: #4f6d5f;
+  --sage-tint: #e2ece5;
+  --border: #e5dadf;
+  --gold: #c99a4a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-foreground-soft: var(--foreground-soft);
+  --color-berry: var(--berry);
+  --color-berry-dark: var(--berry-dark);
+  --color-berry-tint: var(--berry-tint);
+  --color-sage: var(--sage);
+  --color-sage-tint: var(--sage-tint);
+  --color-border: var(--border);
+  --color-gold: var(--gold);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-fraunces);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif), Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+@layer components {
+  .container-x {
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-x {
+      padding-inline: 2rem;
+    }
+  }
+
+  .section-pad {
+    padding-block: 4.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-pad {
+      padding-block: 6.5rem;
+    }
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--berry-dark);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0.85rem 1.6rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .btn-primary {
+    background: var(--berry);
+    color: #fdf6f9;
+    box-shadow: 0 8px 20px -8px rgba(138, 42, 85, 0.55);
+  }
+
+  .btn-primary:hover {
+    background: var(--berry-dark);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--foreground);
+    border: 1.5px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--berry);
+    color: var(--berry-dark);
+  }
+
+  .btn-on-dark {
+    background: rgba(250, 248, 246, 0.12);
+    color: #fdf6f9;
+    border: 1.5px solid rgba(250, 248, 246, 0.4);
+    backdrop-filter: blur(6px);
+  }
+
+  .btn-on-dark:hover {
+    background: rgba(250, 248, 246, 0.2);
+  }
+
+  .card {
+    background: #fffdfc;
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+  }
+
+  .focus-ring:focus-visible {
+    outline: 3px solid var(--berry);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
